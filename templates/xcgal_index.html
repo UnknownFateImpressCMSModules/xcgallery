@@ -1,0 +1,155 @@
+<{include file="db:xcgal_header.html"}>
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer" style="width: 100%;">
+        <tr>
+                <th colspan="3">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                        <td><span class="statlink"><b><{$breadcrumb}>&nbsp;</b></span></td>
+                        <{if $set_stat == 1}>
+                        <td align="right"><span class="statlink"><{$statistics}>&nbsp;</span></td>
+                        <{/if}>
+                </tr>
+                </table>
+                </th>
+        </tr>
+    <{if $lang_category != ''}>
+        <tr>
+                <td class="head" width="80%"><b><{$lang_category}></b></td>
+                <td class="head" width="10%" align="center"><b><{$lang_albums}></b></td>
+                <td class="head" width="10%" align="center"><b><{$lang_pictures}></b></td>
+        </tr>
+
+    <{foreach item=cat from=$cat_datas}>
+    <{if $cat.alb_count == ''}>
+        <tr>
+                <td class="even" colspan="3"><span class="catlink"><b><{$cat.title}></b></span><{$cat.desc}></td>
+        </tr>
+        <{else}>
+        <tr>
+                <td class="odd"><span class="catlink"><b><{$cat.title}></b></span><{$cat.desc}></td>
+                <td class="odd" align="center"><{$cat.alb_count}></td>
+                <td class="odd" align="center"><{$cat.pic_count}></td>
+        </tr>
+        <{/if}>
+        <{/foreach}>
+        <{if $cat_datas && $statistics != ''}>
+        <tr>
+                <td colspan="3" class="foot" align="center"><{$statistics}></td>
+        </tr>
+        <{/if}>
+        <{/if}>
+</table>
+<{if $lang_category != ''}>
+<br />
+<{/if}>
+<{if $display_alb_list == 1}>
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer" style="width: 100%;">
+
+   <{if $alb_stats}>
+        <tr>
+                <td colspan="<{$alb_columns}>" class="head" align="center"><span class="statlink"><{$alb_stats}>&nbsp;</span></td>
+        </tr>
+   <{/if}>
+        <tr>
+
+    <{foreach item=alb from=$albs}>
+        <td width="<{$columns_width}>%" valign="top">
+        <table width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+                <td colspan="3" height="1" valign="top" class="head">
+                        <b><{$alb.title}></b>
+                </td>
+        </tr>
+        <tr>
+                <td colspan="3">
+                        <img src="images/spacer.gif" width="1" height="1" alt=""/><br />
+                </td>
+        </tr>
+        <tr>
+                <td align="center" valign="middle" class="even">
+                        <img src="images/spacer.gif" width="<{$thumb_cell_width}>" height="1" style="margin-top: 0px;
+ margin-bottom: 0px; border: none;" alt=""/><br />
+                        <a href="thumbnails.php?album=<{$alb.aid}>"><{$alb.link_pic}><br /></a>
+                </td>
+                <td>
+                        <img src="images/spacer.gif" width="1" height="1" alt=""/>
+                </td>
+                <td width="100%" valign="top" class="odd">
+                    <{if $alb.alb_admin == 1}>
+                            <table border="0" cellpadding="0" cellspacing="1">
+                          <tr>
+                                 <td align="center" valign="middle">
+                                        <div class="admin_menu"><a href="delete.php?id=<{$alb.aid}>&amp;what=album" onclick="return confirm('<{$alb.amenu.conf_del}>');"><{$alb.amenu.delete}></a></div>
+                                        <div class="admin_menu">
+                                               <a href="modifyalb.php?album=<{$alb.aid}>"><{$alb.amenu.modify}></a>
+                                        </div>
+                                        <div class="admin_menu">
+                                               <a href="editpics.php?album=<{$alb.aid}>"><{$alb.amenu.edit_pics}></a>
+                                        </div>
+                                 </td>
+                          </tr>
+                   </table>
+                    <{/if}>
+                           <{if $alb.desc != ''}>
+                                <p><{$alb.desc}></p>
+                           <{/if}>
+                        <p class="album_stat"><{$alb.info}></p>
+                </td>
+        </tr>
+        </table>
+        </td>
+   <{if $alb.row_sep == 1}>
+        </tr>
+        <tr>
+   <{/if}>
+<{/foreach}>
+<{foreach item=empty from=$empties}>
+        <td width="<{$columns_width}>%" valign="top">
+        <table width="100%" style="table-layout: fixed; height: 100%" cellspacing="0" cellpadding="0">
+        <tr>
+                <td height="1" valign="top" class="head">
+                        <b>&nbsp;</b>
+                </td>
+        </tr>
+        <tr>
+                <td>
+                        <img src="images/spacer.gif" width="1" height="1" alt=""/><br />
+                </td>
+        </tr>
+        <tr style="height: 100%;">
+                <td style="height: 100%" width="100%" valign="top" class="odd">
+                        &nbsp;
+                </td>
+        </tr>
+        </table>
+        </td>
+<{/foreach}>
+        </tr>
+
+        <tr>
+                <td colspan="<{$alb_columns}>" class="foot" style="padding: 0px;">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                                <tr>
+                                        <{$tabs}>
+                                </tr>
+                        </table>
+                </td>
+        </tr>
+</table><br />
+<{/if}>
+<{if $no_img == 1}>
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer" style="width: 100%;">
+        <tr>
+                <td class="head"><{$album_name}></td>
+    <tr>
+                <td class="odd" height="200" align="center">
+                        <font size="3"><b><{$lang_no_img}></b></font>
+                </td>
+        </tr>
+  </table>
+<{else}>
+<{section name=i loop=$thumbs}>
+    <{include file="db:xcgal_thumb.html" thumb=$thumbs[i]}>
+<{/section}>
+<{/if}>
+<{include file="db:xcgal_footer.html"}>

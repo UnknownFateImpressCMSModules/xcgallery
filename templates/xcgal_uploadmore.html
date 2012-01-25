@@ -1,0 +1,92 @@
+<{include file="db:xcgal_header.html"}>
+<form method="post" action="db_input.php" name="upload" ENCTYPE="multipart/form-data">
+      <table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+
+
+            <tr>
+                  <th align="left" nowrap colspan="2">
+                  <input type="hidden" name="event" value="more_pictures" /><b><{$lang_upload}></b>
+                  </th>
+            </tr>
+            <tr>
+                    <td class="head" colspan="2">
+                        <b><{$max_upl}></b>
+                    </td>
+            </tr>
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_album}></b></td>
+                <td class="odd">
+                <{$album_selbox}>
+                </td>
+            </tr>
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_picture}>&nbsp;1</b></td>
+                <td class="odd">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="<{$max_file_size}>" />
+                    <input type="file" name="userpicture1" size="40" class="textinput" />
+                </td>
+            </tr>
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_picture_title}>&nbsp;1</b></td>
+                <td class="odd">
+                    <input type="text" name="title1" size="50" maxlength="250" value="" class="listbox"/>
+                </td>
+            </tr>
+            
+            
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_picture}>&nbsp;2</b></td>
+                <td class="odd">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="<{$max_file_size}>" />
+                    <input type="file" name="userpicture2" size="40" class="textinput" />
+                </td>
+            </tr>
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_picture_title}>&nbsp;2</b></td>
+                <td class="odd">
+                    <input type="text" name="title2" size="50" maxlength="250" value="" class="listbox"/>
+                </td>
+            </tr>
+            
+            
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_picture}>&nbsp;3</b></td>
+                <td class="odd">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="<{$max_file_size}>" />
+                    <input type="file" name="userpicture3" size="40" class="textinput" />
+                </td>
+            </tr>
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_picture_title}>&nbsp;3</b></td>
+                <td class="odd">
+                    <input type="text" name="title3" size="50" maxlength="250" value="" class="listbox"/>
+                </td>
+            </tr>
+            
+            
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_picture}>&nbsp;4</b></td>
+                <td class="odd">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="<{$max_file_size}>" />
+                    <input type="file" name="userpicture4" size="40" class="textinput" />
+                </td>
+            </tr>
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_picture_title}>&nbsp;4</b></td>
+                <td class="odd">
+                    <input type="text" name="title4" size="50" maxlength="250" value="" class="listbox"/>
+                </td>
+            </tr>
+
+
+        <tr>
+            <td colspan="2" align="center" class="foot">
+                <input type="submit" name="submit" class="button" value="<{$lang_submit}>" />&nbsp;
+                <input type="button" class="button" value="<{$lang_cancel}>" onclick="javascript:history.go(-1)" />
+            </td>
+        </tr>
+    </table>
+</form>
+        
+
+<{include file="db:xcgal_footer.html"}>

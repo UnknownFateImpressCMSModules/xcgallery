@@ -1,0 +1,57 @@
+Changelog
+
+
+#####################################################################
+v2.0.3
+- Bug in picture rating when cookies are enabled
+- Mysql bug at album creation (description has no default value)
+- Mysql and PHP compatibility - $...VARS, queryF
+- Ecard revision to work with any xoops version on XoopsMultimailer
+- typos in displayimage.php
+- Batchupload also from frontside
+- Admin menu corrected for Xoops 2.0.14
+- Fullsize image with scrollbars
+- Picture upload for GIF files with GD2 (Frankblack, Mcleines)
+- Batchupload - option for showing only new files in batch upload
+- Pictures with no name inserted - title is the uploaded picture name (DMarvelus, Mcleines)
+- Displayimage with breadcrumb on single picture view
+
+#####################################################################
+v2.0.2
+- Watermarking feature for jpg pictures (EyeKeeper and stuie200, Mcleines)
+- Bug #3289 No redirect after batch upload - exit at the fourth picture (Reintjan)
+- Bug #3203 - Correction of db_input.php  (DMarvelus)
+- Bug #3212 - Correction of xcgal_blocks.php (DMarvelus)
+
+#####################################################################
+v2.0.1
+- Template correction w3c
+- edited template display.html and slideshow.html (page was extended because of width 600)
+- added admin menu
+- IE bug fullsize - javascript disabled in template
+- EXPERIMENTAL! Multimedia support for mp3 avi ...  by vanGoga
+- Uploadform for 4 Files added
+- xcgalstyle.css added in xoops_module_header
+- template bug xcgal_block_meta.html corrected vangoga
+- corrected Text for _MD_DIS_NEXT and _MD_DIS_PREV in english
+
+
+
+#####################################################################
+v2.0
+
+
+Modifications & bugs corrections :
+
+- Picture upload bug with xoops 2.2.x was corrected
+- Errors on first time installation von xoops 2.2.x were solved
+- PHP5 errors were solved
+- Modifications in style were made
+- Templates were corrected to be a nearly xhtml1 valid
+
+
+
+
+#####################################################################
+v1.1RC1 - Baseline
+

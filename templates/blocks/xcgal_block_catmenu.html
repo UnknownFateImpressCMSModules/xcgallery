@@ -1,0 +1,10 @@
+<table cellspacing="0" width="100%">
+  <tr>
+    <td id="mainmenu">
+      <a class="menuTop" href="<{$xoops_url}>/modules/xcgal/"><{$block.xcgal}></a>
+      <{foreach item=cat from=$block.cat_list}>
+      <a class="menuMain" href="<{$xoops_url}>/modules/xcgal/index.php?cat=<{$cat.cid}>"><{$cat.name}></a>
+      <{/foreach}>
+    </td>
+  </tr>
+</table>

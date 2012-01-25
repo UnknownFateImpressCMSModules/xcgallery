@@ -1,0 +1,109 @@
+<{include file="db:xcgal_header.html"}>
+<form method="post" action="db_input.php" name="upload" ENCTYPE="multipart/form-data">
+      <table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+
+
+            <tr>
+                  <th align="left" nowrap colspan="2">
+                  <input type="hidden" name="event" value="picture" /><b><{$lang_upload}></b>
+                  </th>
+            </tr>
+            <tr>
+                    <td class="head" colspan="2">
+                        <b><{$max_upl}></b>
+                    </td>
+            </tr>
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_album}></b></td>
+                <td class="odd">
+                <{$album_selbox}>
+                </td>
+            </tr>
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_picture}></b></td>
+                <td class="odd">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="<{$max_file_size}>" />
+                    <input type="file" name="userpicture" size="40" class="textinput" />
+                </td>
+            </tr>
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_picture_title}></b></td>
+                <td class="odd">
+                    <input type="text" name="title" size="50" maxlength="250" value="" class="listbox"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="even" align="left" valign="top" nowrap><b><{$lang_description}></b></td>
+                <td class="odd"><{$xoops_codes}><{$xoops_smilies}></td>
+            </tr>
+            <tr>
+                <td class="even" align="left" nowrap><b><{$lang_keywords}></b></td>
+                <td class="odd">
+                    <input type="text" class="textinput" name="keywords" size="50" maxlength="250" value="" />
+                </td>
+            </tr>
+            
+            
+          <{if $user1 == ''}>
+               <input type="hidden" name="user1" value="" />
+          <{else}>
+          <tr>
+              <td class="even" style="white-space: nowrap;">
+                <b><{$user1}></b>
+              </td>
+              <td class="odd" valign="top">
+               <input type="text" name="user1" maxlength="255" value="" size="50" class="textinput" />
+              </td>
+          </tr>
+          <{/if}>
+          
+        <{if $user2 == ''}>
+             <input type="hidden" name="user2" value="" />
+        <{else}>
+        <tr>
+            <td class="even" style="white-space: nowrap;">
+                <b><{$user2}></b>
+            </td>
+            <td class="odd" valign="top">
+               <input type="text" size="50" name="user2" maxlength="255" value="" class="textinput" />
+               </td>
+        </tr>
+        <{/if}>
+                
+        <{if $user3 == ''}>
+             <input type="hidden" name="user3" value="" />
+        <{else}>
+        <tr>
+            <td class="even" style="white-space: nowrap;">
+                <b><{$user3}></b>
+            </td>
+            <td class="odd" valign="top">
+               <input type="text" size="50" name="user3" maxlength="255" value="" class="textinput" />
+            </td>
+        </tr>
+        <{/if}>
+        
+        <{if $user4 == ''}>
+             <input type="hidden" name="user4" value="" />
+        <{else}>
+        <tr>
+            <td class="even" style="white-space: nowrap;">
+                <b><{$user4}></b>
+            </td>
+            <td class="odd" valign="top">
+               <input type="text" size="50" name="user4" maxlength="255" value="" class="textinput" />
+            </td>
+        </tr>
+        <{/if}>
+        
+        <tr>
+            <td colspan="2" align="center" class="foot">
+                <input type="submit" name="submit" class="button" value="<{$lang_submit}>" />&nbsp;
+                <input type="button" class="button" value="<{$lang_cancel}>" onclick="javascript:history.go(-1)" />
+            </td>
+        </tr>
+    </table>
+</form>
+        
+
+<{include file="db:xcgal_footer.html"}>

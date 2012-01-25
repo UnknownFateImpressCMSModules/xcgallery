@@ -1,0 +1,23 @@
+<table width="100%" cellspacing="1" align="center">
+	<{if $block.position == 1}>
+		<tr>
+			<{foreach item=pic from=$block.pics}>
+				<td align="center" class="filmstrip" style="padding: 10px;vertical-align: middle;background:#000;">
+					<a href="<{$pic.link_tgt}>" title="<{$pic.caption}>">
+					    <div style="background: url('<{$pic.image}>') repeat scroll 0 0 transparent; width: 100%; height: 150px;"></div></a>
+					<{$pic.caption}>
+				</td>
+			<{/foreach}>
+		</tr>
+	<{else}>
+		<{foreach item=pic from=$block.pics}>
+			<tr>
+				<td align="center" style="padding: 10px;vertical-align: middle;">
+					<a href="<{$pic.link_tgt}>" title="<{$pic.caption}>">
+						<div style="background: url('<{$pic.image}>') repeat scroll 0 0 transparent; width: 150px; height: 150px;"></div></a>
+					<{$pic.caption}>
+				</td>
+			</tr>
+		<{/foreach}>
+	<{/if}>
+</table>

@@ -1,0 +1,148 @@
+<{include file="db:xcgal_header.html"}>
+<form method="post" action="db_input.php">
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+  <tr>
+        <th colspan="2">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                     <td class="statlink"><h2><{$update}></h2></td>
+                  <td align="right"><{$album_lb}></td>
+                </tr>
+          </table>
+        </th>
+  </tr>
+
+        <input type="hidden" name="event" value="album_update" />
+        <input type="hidden" name="aid" value="<{$album}>" />
+  <tr>
+        <td class="head" colspan="2">
+          <b><{$general_settings}></b>
+        </td>
+  </tr>
+  <tr>
+    <td width="40%" class="even">
+          <{$alb_title}>
+    </td>
+    <td width="60%" class="odd" valign="top">
+      <input type="text" style="width: 90%" name="title" value="<{$album_data_title}>" class="textinput" />
+        </td>
+  </tr>
+  <tr>
+    <td class="even">
+        <{$alb_cat}>
+    </td>
+    <td class="odd" valign="top">
+    <{if $user_galleries == 1}>
+          <i><{$user_gal}></i>
+          <input type="hidden" name="category" value="<{$album_data_category}>" />
+        <{else}>
+           <select name="category" class="listbox">
+           <{$cat_list}>
+           </select>
+        <{/if}>
+        </td>
+  </tr>
+  <tr>
+        <td class="even" valign="top">
+          <{$alb_desc}>
+        </td>
+        <td class="odd" valign="top">
+             <textarea name="description" rows="5" cols="40" wrap="virtual" class="textinput" style="width: 90%;"><{$album_data_description}></textarea>
+        </td>
+  </tr>
+  <tr>
+        <td class="even" valign="top">
+          <{$alb_thumb}>
+        </td>
+        <{if $no_pic == 1}>
+        <td class="odd" valign="top">
+          <i><{$alb_empty}></i>
+          <input type="hidden" name="thumb" value="0">
+        </td>
+        <{else}>
+        <td class="odd">
+          <script language="JavaScript" type="text/JavaScript">
+      var Pic = new Array()
+      Pic[0] = 'images/nopic.jpg'
+      <{$pic_url}>
+      function ChangeThumb(index)
+      {
+             document.images.Thumb.src = Pic[index]
+      }
+      </script>
+      <table cellspacing="0" cellpadding="0" border="0">
+            <tr>
+                  <td width="<{$thumb_cell_height}>" height="<{$thumb_cell_height}>" align="center"><img src="<{$initial_thumb_url}>" name='Thumb' class='image' alt=""/><br /></td>
+            </tr>
+          </table>
+          <select name="thumb" class="listbox" onChange="if(this.options[this.selectedIndex].value) ChangeThumb(this.options[this.selectedIndex].value);" onKeyUp="if(this.options[this.selectedIndex].value) ChangeThumb(this.options[this.selectedIndex].value);">
+        <{$thumbs}>
+      </select>
+    </td>
+        <{/if}>
+  </tr>
+  <tr>
+        <td class="head" colspan="2">
+      <b><{$alb_perm}></b>
+        </td>
+  </tr>
+  <{if $no_private==1}>
+    <input type="hidden" name="visibility" value="0">
+  <{else}>
+  <tr>
+        <td class="even">
+          <{$can_view}>
+    </td>
+    <td class="odd" valign="top">
+          <select name="visibility" class="listbox">
+          <{$view_options}>
+      </select>
+        </td>
+  </tr>
+  <{/if}>
+  <{if $user_admin_mode==1}>
+  <input type="hidden" name="uploads" value="<{$album_data_uploads}>">
+  <{else}>
+  <tr>
+    <td class="even">
+        <{$can_upload_pic}>
+    </td>
+    <td class="odd" valign="top">
+          <select name="uploads" class="listbox">
+                <option value="YES" <{$yes_selected_upload}>><{$lang_yes}></option>
+                <option value="NO" <{$no_selected_upload}>><{$lang_no}></option>
+          </select>
+        </td>
+  </tr>
+  <{/if}>
+  <tr>
+    <td class="even">
+        <{$can_post_comments}>
+    </td>
+    <td class="odd" valign="top">
+          <select name="comments" class="listbox">
+                <option value="YES" <{$yes_selected_comments}>><{$lang_yes}></option>
+                <option value="NO" <{$no_selected_comments}>><{$lang_no}></option>
+          </select>
+        </td>
+  </tr>
+  <tr>
+    <td class="even">
+        <{$can_rate}>
+    </td>
+    <td class="odd" valign="top">
+          <select name="votes" class="listbox">
+                <option value="YES" <{$yes_selected_votes}>><{$lang_yes}></option>
+                <option value="NO" <{$no_selected_votes}>><{$lang_no}></option>
+          </select>
+        </td>
+  </tr>
+  <tr>
+        <td colspan="2" align="center" class="foot">
+          <input type="submit" class="button" value="<{$update}>" />
+        </td>
+
+  </tr>
+</table>
+</form>
+<{include file="db:xcgal_footer.html"}>

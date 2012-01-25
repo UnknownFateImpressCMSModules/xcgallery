@@ -1,0 +1,89 @@
+<{include file="db:xcgal_header.html"}>
+<script language="JavaScript" type="text/JavaScript">
+// (C) 2000 www.CodeLifter.com
+// http://www.codelifter.com
+// Free for all users, but leave in this  header
+// NS4-6,IE4-6
+// Fade effect only in IE; degrades gracefully
+
+// Set slideShowSpeed (milliseconds)
+var slideShowSpeed = <{$speed}>
+
+// Duration of crossfade (seconds)
+var crossFadeDuration = 3
+
+// Specify the image files
+var Pic = new Array() // don't touch this
+// to add more images, just continue
+// the pattern, adding to the array below
+<{foreach item=pic from=$pics}>
+Pic[<{$pic.i}>] = '<{$pic.pic_url}>';
+<{/foreach}>
+var t
+var j = <{$j}>
+var p = Pic.length
+var pos = j
+
+var preLoad = new Array()
+
+function preLoadPic(index)
+{
+        if (Pic[index] != ''){
+                window.status='Loading : '+Pic[index]
+                preLoad[index] = new Image()
+                preLoad[index].src = Pic[index]
+                Pic[index] = ''
+                window.status=''
+        }
+}
+
+function runSlideShow(){
+   if (document.all){
+            document.images.SlideShow.style.filter="blendTrans(duration=2)"
+                document.images.SlideShow.style.filter= "blendTrans(duration=crossFadeDuration)"
+      document.images.SlideShow.filters.blendTrans.Apply()
+        }
+        document.images.SlideShow.src = preLoad[j].src
+        if (document.all){
+           document.images.SlideShow.filters.blendTrans.Play()
+        }
+
+        pos = j
+
+        j = j + 1
+        if (j > (p-1)) j=0
+        t = setTimeout('runSlideShow()', slideShowSpeed)
+        preLoadPic(j)
+}
+
+function endSlideShow(){
+        self.document.location = 'displayimage.php?album=<{$album}>&amp;cat=<{$cat}>&amp;pos='+pos
+}
+
+preLoadPic(j)
+
+</script>
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+<tr>
+                <td align="center" class="odd" height="<{$cell_height}>" style="white-space: nowrap; padding: 0px; vertical-align: middle;">
+                        <table cellspacing="2" cellpadding="0" style="border: 1px solid #000000; background-color: #FFFFFF; margin-top: 30px; margin-bottom: 30px;width: auto;">
+                                <tr>
+                                        <td>
+                                                <img src="<{$start_img}>" name="SlideShow" class="image" alt=""/><br />
+                                        </td>
+                                </tr>
+                        </table>
+
+                </td>
+        </tr>
+
+</table>
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+<tr>
+                <td align="center" class="navmenu" style="white-space: nowrap;">
+                <script language="JavaScript" type="text/JavaScript">runSlideShow()</script>
+                        <a href="javascript:endSlideShow()" class="navmenu"><{$lang_stop_slideshow}></a>
+                </td>
+        </tr>
+</table>
+<{include file="db:xcgal_footer.html"}>

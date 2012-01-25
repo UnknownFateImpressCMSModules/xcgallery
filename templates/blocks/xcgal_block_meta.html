@@ -1,0 +1,31 @@
+<{foreach item=meta from=$block.metas}>
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+  <tr><th align="left" colspan="<{$block.count}>"><{$meta.title}></th></tr>
+
+  <tr>
+    <{foreach item=pic from=$meta.pics}>
+    <td valign="top" class="even" width ="<{$block.width}>%" align="center">
+                <table width="100%" cellpadding="0" cellspacing="0">
+               <tr>
+                        <td align="center">
+              <a href="<{$xoops_url}>/modules/xcgal/<{$pic.link_tgt}>"><{$pic.image}></a><br />
+                      <{$pic.caption}>
+                    </td>
+          </tr>
+              </table>
+        </td>
+        
+        <{if $pic.i == $block.count}>
+        </tr><tr>
+        <{/if}>
+        <{/foreach}>
+        <{if $meta.empty == 1}>
+          <{foreach item=empt from=$meta.empties}>
+           <td valign="top" class="odd" width ="<{$block.width}>%" align="center">&nbsp;</td>
+          <{/foreach}>
+    <{/if}>
+  </tr>
+
+</table>
+<br />
+<{/foreach}>
