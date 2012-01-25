@@ -1,0 +1,137 @@
+<{include file="db:xcgal_header.html"}>
+<SCRIPT LANGUAGE="JavaScript">
+function textCounter(field, maxlimit) {
+	if (field.value.length > maxlimit) // if too long...trim it!
+	field.value = field.value.substring(0, maxlimit);
+}
+</script>
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+  <tr><th colspan="3"><h2><{$title}></h2></th></tr>
+  <tr>
+	<td class="even" colspan="3" align="center">
+      <form method="post" action="<{$form_target}>">
+		<b><{$pic_count_text}></b>&nbsp;&nbsp;-&nbsp;&nbsp;
+		<{$prev_link}>
+		<{$next_link}>
+		<b><{$n_of_pic_to_disp}></b>
+		<select onChange="if(this.options[this.selectedIndex].value) window.location.href='editpics.php?album=<{$album_id}>&amp;start=<{$start}>&amp;count='+this.options[this.selectedIndex].value;"  name="count" class="listbox">
+		  <option value="25">25</option>
+		  <option value="50" <{$s50}>>50</option>
+		  <option value="75" <{$s75}>>75</option>
+		  <option value="100" <{$s100}>>100</option>
+		</select>
+	</td>
+  </tr>
+  <{foreach item=pic from=$pics}>
+    <tr>
+	  <td class="head" colspan="3">
+		<input type="hidden" name="pid[]" value="<{$pic.current}>"><b><{$pic.filename}></b>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="even" style="white-space: nowrap;">
+		<{$lang_pic_info}>
+	  </td>
+	  <td class="odd">
+		<{$pic.pic_info}>
+	  </td>
+	  <td class="even" align="center" rowspan="<{$rowspan}>">
+		<a href="<{$pic.thumb_link}>" target="_blank"><img src="<{$pic.thumb_url}>" class="image" border="0" alt=""/><br /></a>
+	  </td>
+	</tr>
+	<tr>
+      <td class="even" style="white-space: nowrap;">
+		<{$lang_album}>
+      </td>
+      <td class="odd" valign="top">
+       	<select name="<{$pic.sel_name}>" class="listbox">
+       	  <{$pic.alb_opt}>
+	    </select>
+	  </td>
+	</tr>
+	<tr>
+      <td class="even" style="white-space: nowrap;">
+	    <{$lang_title}>
+      </td>
+      <td width="100%" class="odd" valign="top">
+       	<input type="text" style="width: 80%" name="<{$pic.title_name}>" maxlength="255" value="<{$pic.title_value}>" class="textinput" />
+	  </td>
+	</tr>
+	<tr>
+	  <td class="even" valign="top" style="white-space: nowrap;">
+		<{$lang_desc}>
+	  </td>
+	  <td class="odd" valign="top">
+		<{$pic.xoops_codes}><{$pic.xoops_smilies}>
+	  </td>
+	</tr>
+	<tr>
+      <td class="even" style="white-space: nowrap;">
+		<{$lang_keywords}>
+      </td>
+      <td width="100%" class="odd" valign="top">
+       	<input type="text" style="width: 80%" name="<{$pic.keywords_name}>" maxlength="255" value="<{$pic.keywords_value}>" class="textinput" />
+	  </td>
+	</tr>
+	<{if $user1 == ''}>
+	<input type="hidden" name="<{$pic.name_field1}>" value="">
+	<{else}>
+	<tr>
+      <td class="even" style="white-space: nowrap;">
+		<{$user1}>
+      </td>
+      <td width="100%" class="odd" valign="top">
+       	<input type="text" style="width: 80%" name="<{$pic.name_field1}>" maxlength="255" value="<{$pic.value_field1}>" class="textinput" />
+	  </td>
+	</tr>
+	<{/if}>
+	<{if $user2 == ''}>
+	<input type="hidden" name="<{$pic.name_field2}>" value="">
+	<{else}>
+	<tr>
+      <td class="even" style="white-space: nowrap;">
+		<{$user2}>
+      </td>
+      <td width="100%" class="odd" valign="top">
+       	<input type="text" style="width: 80%" name="<{$pic.name_field2}>" maxlength="255" value="<{$pic.value_field2}>" class="textinput" />
+	  </td>
+	</tr>
+	<{/if}>
+	<{if $user3 == ''}>
+	<input type="hidden" name="<{$pic.name_field3}>" value="">
+	<{else}>
+	<tr>
+      <td class="even" style="white-space: nowrap;">
+		<{$user3}>
+      </td>
+      <td width="100%" class="odd" valign="top">
+       	<input type="text" style="width: 80%" name="<{$pic.name_field3}>" maxlength="255" value="<{$pic.value_field3}>" class="textinput" />
+	  </td>
+	</tr>
+	<{/if}>
+	<{if $user4 == ''}>
+	<input type="hidden" name="<{$pic.name_field4}>" value="">
+	<{else}>
+	<tr>
+      <td class="even" style="white-space: nowrap;">
+		<{$user4}>
+      </td>
+      <td width="100%" class="odd" valign="top">
+       	<input type="text" style="width: 80%" name="<{$pic.name_field4}>" maxlength="255" value="<{$pic.value_field4}>" class="textinput" />
+	  </td>
+	</tr>
+	<{/if}>
+	<tr>
+	  <td class="foot" colspan="3" align="center">
+	  <{$pic.pic_opt}>
+	  </td>
+	</tr>
+  <{/foreach}>
+  <tr>
+    <td colspan="3" align="center" class="even">
+      <input type="submit" value="<{$apply}>" class="button">
+	</td>
+	</form>
+  </tr>
+</table>
+<{include file="db:xcgal_footer.html"}>

@@ -1,0 +1,15 @@
+###############################################################################
+#                             UPGRADE INSTRUCTIONS                            #
+###############################################################################
+
+For upgrading from V1.1RC1 simply overwrite the existing files with these 
+files. Then go to modules administration and update the modul. 
+You will enjoy it!
+
+
+
+Please report bugs on:
+http://dev.xoops.org/modules/xfmod/tracker/?group_id=1264
+
+
+###############################################################################

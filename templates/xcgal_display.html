@@ -1,0 +1,120 @@
+<{include file="db:xcgal_header.html"}>
+
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+
+        <tr>
+                <th colspan="7">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                        <td><span class="statlink"><b><a href="index.php"><{$gallery}></a> &gt; <a href="<{$thumb_tgt}>" title="<{$album_title}>"><{$album_title}></a>&nbsp;</b></span></td>
+                </tr>
+                </table>
+                </th>
+        </tr>
+
+  <tr>
+        <th align="center" valign="middle" class="navmenu" width="48">
+          <a href="<{$thumb_tgt}>" class="navmenu_pic" title="<{$thumb_title}>"><img src="images/folder.gif" width="16" height="16" align="middle" border="0" alt="<{$thumb_title}>"/></a>
+        </th>
+        <th align="center" valign="middle" class="navmenu" width="48">
+          <a href="javascript:;" onClick="blocking('picinfo','yes', 'block'); return false;" title="<{$pic_info_title}>"><img src="images/info.gif" width="16" height="16" border="0" align="middle" alt="<{$pic_info_title}>"/></a>
+        </th>
+        <th align="center" valign="middle" class="navmenu" width="48">
+          <a href="<{$slideshow_tgt}>" title="<{$slideshow_title}>"><img src="images/slideshow.gif" width="16" height="16" border="0" align="middle" alt="<{$slideshow_title}>"/></a>
+        </th>
+        <th align="center" valign="middle" class="navmenu">
+          <{$pic_pos}>
+        </th>
+        <th align="center" valign="middle" class="navmenu" width="48">
+          <a href="<{$ecard_tgt}>" title="<{$ecard_title}>"><img src="images/ecard.gif" width="16" height="16" border="0" align="middle" alt="<{$ecard_title}>"/></a>
+        </th>
+        <th align="center" valign="middle" class="navmenu" width="48">
+          <a href="<{$prev_tgt}>" class="navmenu_pic" title="<{$prev_title}>"><img src="images/prev.gif" width="16" height="16" border="0" align="middle" alt="<{$prev_title}>"/></a>
+        </th>
+        <th align="center" valign="middle" class="navmenu" width="48">
+          <a href="<{$next_tgt}>" class="navmenu_pic" title="<{$next_title}>"><img src="images/next.gif" width="16" height="16" border="0" align="middle" alt="<{$next_title}>"/></a>
+        </th>
+  </tr>
+</table>
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+  <tr>
+        <td align="center" class="odd" height="100">
+          <table class="outer" cellspacing="2" cellpadding="0" style="border: 1px solid #000000; background-color: #FFFFFF; margin-top: 30px; margin-bottom: 30px;width: auto;">
+                <tr>
+                  <td>
+                        <{if $file_type=='image'}>
+                        <{if $reduced==1}>
+                        <a href="javascript:;" onClick="MM_openBrWindow('displayimage.php?pid=<{$pid}>&amp;fullsize=1','<{$uniqid_rand}>','scrollbars=yes,toolbar=yes,status=yes,resizable=yes,width=<{$winsizeX}>,height=<{$winsizeY}>');">
+                      <img src="<{$picture_url}>" <{$image_size}> class="image" border="0" alt="<{$lang_view_fs}>" /><br />
+                    </a>
+                        <{else}>
+                        <img src="<{$picture_url}>" <{$image_size}> class="image" border="0" alt=""/><br />
+                        <{/if}>
+                        <{else}>
+                        <object <{$image_size}>><param name="<{$file_type}>" value="<{$picture_url}>"><embed <{$image_size}> src="<{$picture_url}>"></embed></object>
+                        <{/if}>
+                        <{if $lang_del_pic !=''}>
+                        <form action="delete.php" style="padding: 0px;margin: 0px" method="post"><input type="hidden" name="id" value="<{$pid}>" /><input type="submit" name="picture" value="<{$lang_del_pic}>" class="button" style="width: 100%" onclick="return confirm('<{$lang_confirm_del}>');" /></form>
+            <{/if}>
+                  </td>
+                </tr>
+          </table>
+          <table cellpadding="0" cellspacing="0">
+       <{if $pic_title!=''}>
+                <tr>
+              <th>
+                        <{$pic_title}>
+                  </th>
+                </tr>
+           <{/if}>
+       <{if $pic_caption !=''}>
+                <tr>
+                  <td style="text-align: left;">
+                        <div style="margin: 3px 10px 10px 10px;"><{$pic_caption}></div>
+                  </td>
+                </tr>
+      <{/if}>
+          </table>
+<!-- END img_desc -->
+
+        </td>
+  </tr>
+</table>
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+  <tr>
+        <td colspan="6" class="head"><b><{$lang_rate_this_pic}>&nbsp;</b> <{$votes}></td>
+  </tr>
+  <tr>
+        <td class="even" width="17%" align="center"><a href="ratepic.php?pic=<{$pid}>&amp;rate=0" title="<{$lang_rubbish}>"><img src="images/rating0.gif" alt="<{$lang_rubbish}>" border="0"/><br /></a></td>
+        <td class="even" width="17%" align="center"><a href="ratepic.php?pic=<{$pid}>&amp;rate=1" title="<{$lang_poor}>"><img src="images/rating1.gif" alt="<{$lang_poor}>" border="0"/><br /></a></td>
+        <td class="even" width="17%" align="center"><a href="ratepic.php?pic=<{$pid}>&amp;rate=2" title="<{$lang_fair}>"><img src="images/rating2.gif" alt="<{$lang_fair}>" border="0"/><br /></a></td>
+        <td class="even" width="17%" align="center"><a href="ratepic.php?pic=<{$pid}>&amp;rate=3" title="<{$lang_good}>"><img src="images/rating3.gif" alt="<{$lang_good}>" border="0"/><br /></a></td>
+        <td class="even" width="17%" align="center"><a href="ratepic.php?pic=<{$pid}>&amp;rate=4" title="<{$lang_excellent}>"><img src="images/rating4.gif" alt="<{$lang_excellent}>" border="0"/><br /></a></td>
+        <td class="even" width="17%" align="center"><a href="ratepic.php?pic=<{$pid}>&amp;rate=5" title="<{$lang_great}>"><img src="images/rating5.gif" alt="<{$lang_great}>" border="0"/><br /></a></td>
+  </tr>
+</table>
+<div id="picinfo" style="display: <{$picinfo}>;">
+  <table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+  <tr><td colspan="2" class="head"><b><{$lang_picinfo_title}></b></td></tr>
+  <{foreach item=info from=$infos}>
+    <tr><td class="<{cycle name="keys" values="even,odd"}>" valign="top" nowrap><{$info.key}>:</td><td class="<{cycle name="values" values="even,odd"}>"><{$info.value}></td></tr>
+  <{/foreach}>
+  </table>
+</div>
+<div style="text-align: center; padding: 3px; margin:3px;">
+  <{$commentsnav}>
+  <{$lang_notice}>
+</div>
+
+<div style="margin:3px; padding: 3px;">
+<!-- start comments loop -->
+<{if $comment_mode == "flat"}>
+  <{include file="db:system_comments_flat.html"}>
+<{elseif $comment_mode == "thread"}>
+  <{include file="db:system_comments_thread.html"}>
+<{elseif $comment_mode == "nest"}>
+  <{include file="db:system_comments_nest.html"}>
+<{/if}>
+<!-- end comments loop -->
+</div>
+<{include file="db:xcgal_footer.html"}>

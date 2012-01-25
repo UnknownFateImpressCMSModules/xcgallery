@@ -1,0 +1,51 @@
+
+<script type="text/javascript" src="scripts.js"></script>
+
+<table width="100%" border="0" cellpadding="5" cellspacing="5">
+  <tr>
+        <td valign="top" >
+
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                  <td width="30%" style="text-align: center; font-size: 18pt"><a href="index.php" title="<{$gallery}>"><{$gallery}><br /></a></td>
+                  <td width="70%" align="center">
+                    <br />
+                        <span>
+              <a href="index.php<{$alb_list_tgt}>" title="<{$alb_list_title}>"><{$alb_list_lnk}></a> ::
+              <{if $user_gallery==1}>
+                          <a href="index.php?cat=<{$my_gallery_id}>" title="<{$my_gal_title}>"><{$my_gal_lnk}></a> ::
+              <{if $admin_mode==1}>
+              <a href="admin.php?admin_mode=0&amp;referer=<{$referer}>" title="<{$usr_mode_title}>"><{$usr_mode_lnk}></a> ::
+              <{else}>
+              <a href="admin.php?admin_mode=1&amp;referer=<{$referer}>" title="<{$adm_mode_title}>"><{$adm_mode_lnk}></a> ::
+              <{/if}>
+              <{/if}>
+              <{if $can_upload==1}>
+                          <a href="upload.php" title="<{$upload_pic_title}>"><{$upload_pic_lnk}></a> ::
+                          <a href="uploadmore.php" title="<{$uploadmore_pic_title}>"><{$uploadmore_pic_lnk}></a> ::
+                          <a href="batchupload.php" title="Batchupload">Batchupload</a> ::
+                          <{/if}>
+                          <a href="thumbnails.php?album=lastup<{$cat_l2}>"><{$lastup_lnk}></a> ::
+                          <a href="thumbnails.php?album=lastcom<{$cat_l2}>"><{$lastcom_lnk}></a> ::
+                          <a href="thumbnails.php?album=topn<{$cat_l2}>"><{$topn_lnk}></a> ::
+                          <a href="thumbnails.php?album=toprated<{$cat_l2}>"><{$toprated_lnk}></a> ::
+                          <a href="search.php"><{$search_lnk}></a>
+                    </span>
+                  </td>
+                </tr>
+          </table>
+          
+                <img src="images/spacer.gif" width="1" height="15" alt=""/><br />
+          <table border="0" width="100%" align="center" cellpadding="0" cellspacing="0">
+                 <tr>
+                     <td align="left" valign="top">
+                         <{if $admin_mode==1}>
+                              <div align="left">
+                                   <table style="width: auto;" cellpadding="0" cellspacing="1">
+                                          <tr>
+                                              <td class="admin_menu"><a href="albmgr.php" title=""><{$albmgr_lnk}></a></td>
+                                              <td class="admin_menu"><a href="modifyalb.php" title=""><{$modifyalb_lnk}></a></td>
+                                          </tr>
+                                   </table>
+                              </div>
+                        <{/if}>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<html>
+<head>
+<title><{$sitename}> - <{$ecard_title}></title>
+<meta http-equiv="content-type" content="text/html; charset=<{$charset}>" />
+</head>
+<body bgcolor="#FFFFFF" text="#0F5475" link="#0F5475" vlink="#0F5475" alink="#0F5475">
+<br />
+<{if $view_ecard_tgt != "0"}>
+<p align="center"><a href="<{$view_ecard_tgt}>"><b><{$view_ecard_lnk}></b></a></p>
+<{/if}>
+<table border="0" cellspacing="0" cellpadding="1" align="center">
+  <tr>
+    <td bgcolor="#000000">
+      <table border="0" cellspacing="0" cellpadding="10" bgcolor="#ffffff">
+        <tr>
+          <td valign="middle">
+           <img src="<{$pic_url}>" border="1" alt=""/><br />
+          </td>
+          <td valign="top" width="200" height="250">
+            <div align="right"><img src="<{$xoops_url}>/modules/xcgal/images/stamp.gif" border="0" alt=""/></div>
+            <br />
+            <b><font face="arial" color="#000000" size="4"><{$greetings}></font></b>
+            <br />
+            <br />
+            <font face="arial" color="#000000" size="2"><{$message}></font>
+            <br />
+            <br />
+            <font face="arial" color="#000000" size="2"><{$sender_name}></font>
+            (<a href="mailto:<{$sender_email}>"><font face="arial" color="#000000" size="2"><{$sender_email}></font></a>)
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p align="center"><a href="<{$view_more_tgt}>"><b><{$view_more_lnk}></b></a></p>
+</body>
+</html>

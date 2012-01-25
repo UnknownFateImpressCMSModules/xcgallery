@@ -1,0 +1,25 @@
+<{include file="db:xcgal_header.html"}>
+<form style="margin 0; padding: 0;" method="get" action="thumbnails.php">
+<table align="center" width="500" cellspacing="1" cellpadding="0" class="outer" style="width: 100%;">
+    <tr>
+
+                <th><h2><{$search_title}></h2></th>
+        </tr>
+        <tr>
+                <td class="odd" align="center">
+
+                  <input type="hidden" name="album" value="search" />
+                 <input type="hidden" name="type" value="full" />
+          <input type="input" style="width: 90%" name="search" maxlength="255" value="" class="textinput" />
+                </td>
+        </tr>
+        <tr>
+                <td align="center" class="foot">
+                        <input type="submit" value="<{$search_title}>" class="button" />
+                        
+                </td>
+                
+        </tr>
+</table>
+</form>
+<{include file="db:xcgal_footer.html"}>

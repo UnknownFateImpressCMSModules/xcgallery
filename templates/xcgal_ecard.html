@@ -1,0 +1,78 @@
+<{include file="db:xcgal_header.html"}>
+<form method="post" name="post" action="ecard.php?album=<{$album}>&amp;pid=<{$pid}>&amp;pos=<{$pos}>">
+
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer" style="width: 100%;">
+<tr>
+                <th colspan="3"><h2><{$ecard_title}></h2></th>
+        </tr>
+        <tr>
+                <td class="head" colspan="2"><b><{$lang_ecard_from}></b></td>
+                <td rowspan="6" align="center" valign="top" class="even">
+                        <img src="<{$thumb_url}>" alt="" vspace="8" border="0" class="image"/><br />
+                </td>
+        </tr>
+        <tr>
+                <td class="even" valign="top">
+
+                        <{$lang_your_name}><br />
+                </td>
+                <td valign="top" class="odd">
+                        <input type="text" size="50" maxlength="250" class="textinput" name="sender_name"  value="<{$sender_name}>" /><br />
+                </td>
+        </tr>
+        <tr>
+                <td class="even" valign="top">
+                        <{$lang_your_email}><br />
+                </td>
+                <td valign="top" class="odd">
+                        <input type="text" size="50" maxlength="250" class="textinput" name="sender_email"  value="<{$sender_email}>" /><br />
+                        <{$sender_email_warning}>
+                </td>
+        </tr>
+        <tr>
+                <td class="head" colspan="2"><b><{$lang_ecard_to}></b></td>
+        </tr>
+        <tr>
+                <td class="even" valign="top">
+                        <{$lang_rcpt_name}><br />
+                </td>
+                <td valign="top" class="odd">
+                        <input type="text" size="50" maxlength="250" class="textinput" name="recipient_name"  value="<{$recipient_name}>" /><br />
+                </td>
+        </tr>
+        <tr>
+                <td class="even" valign="top">
+                        <{$lang_rcpt_email}><br />
+                </td>
+                <td valign="top" class="odd">
+                        <input type="text" size="50" maxlength="250" class="textinput" name="recipient_email"  value="<{$recipient_email}>" /><br />
+                        <{$recipient_email_warning}>
+                </td>
+        </tr>
+        <tr>
+                <td class="head" colspan="3"><b><{$lang_ecard_greetings}></b></td>
+        </tr>
+        <tr>
+                <td class="odd" colspan="3">
+                        <input type="text" size="80" class="textinput" name="greetings"  value="<{$greetings}>" /><br />
+                </td>
+        </tr>
+        <tr>
+                <td class="head" colspan="3"><b><{$lang_ecard_message}></b></td>
+        </tr>
+        <tr>
+                <td class="odd" colspan="3" valign="top"><br />
+                <{$xoops_codes}><{$xoops_smilies}>
+        </td>
+        </tr>
+
+        <tr>
+                <td colspan="3" align="center" class="foot">
+                        <input type="submit" class="button" value="<{$ecard_title}>" />
+
+                </td>
+        </tr>
+
+</table>
+</form>
+<{include file="db:xcgal_footer.html"}>

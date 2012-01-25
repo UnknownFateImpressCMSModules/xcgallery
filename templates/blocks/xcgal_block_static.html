@@ -1,0 +1,21 @@
+<table width="100%" cellspacing="1" align="center">
+  <{if $block.position == 1}>
+  <tr>
+    <{foreach item=pic from=$block.pics}>
+    <td align="center" class="odd" style="padding: 10px;vertical-align: middle;">
+                <a href="<{$xoops_url}>/modules/xcgal/<{$pic.link_tgt}>"><{$pic.image}></a><br />
+                <{$pic.caption}>
+        </td>
+        <{/foreach}>
+  </tr>
+  <{else}>
+  <{foreach item=pic from=$block.pics}>
+  <tr>
+    <td align="center" style="padding: 10px;vertical-align: middle;">
+                <a href="<{$xoops_url}>/modules/xcgal/<{$pic.link_tgt}>"><{$pic.image}></a> <br />
+                <{$pic.caption}>
+        </td>
+  </tr>
+  <{/foreach}>
+  <{/if}>
+</table>

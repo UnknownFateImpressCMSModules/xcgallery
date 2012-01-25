@@ -1,0 +1,43 @@
+<{include file="db:xcgal_header.html"}>
+<table align="center" width="100%" cellspacing="1" cellpadding="0" class="outer">
+  <tr><th colspan="6"><h2><{$table_header}></h2></th></tr>
+  <{if $lang_pictures != ''}>
+  <tr>
+    <td class="head"><b><{$lang_pictures}></b></td>
+    <td class="head" align="center"><b>F</b></td>
+    <td class="head" align="center"><b>N</b></td>
+    <td class="head" align="center"><b>T</b></td>
+    <td class="head" align="center"><b>C</b></td>
+    <td class="head" align="center"><b>D</b></td>
+  </tr>
+  <{/if}>
+  <{foreach item=delete from=$deletes}>
+  <{$delete.pic_del}>
+  <{if $delete.del_message != ''}>
+  <tr><td colspan="6" class="<{cycle values="even,odd"}>"><{$delete.del_message}></td></tr>
+  <{/if}>
+  <{/foreach}>
+  <{if $create_update !=''}>
+  <tr><td colspan="6" class="<{cycle values="even,odd"}>"><{$create_update}></td></tr>
+  <{/if}>
+  <{if $need_caption==1}>
+  <tr><td colspan="6" class="<{cycle values="even,odd"}>">&nbsp;</td></tr>
+  <tr><td colspan="6" class="head"><b><{$lang_caption}></b></tr>
+  <tr>
+    <td colspan="6" class="odd">
+      <table cellpadding="1" cellspacing="0">
+        <tr><td><b>F</b></td><td>:</td><td><{$lang_fs_pic}></td><td width="20">&nbsp;</td><td><img src="images/green.gif" border="0" width="12" height="12" align="middle" alt=""/></td><td>:</td><td><{$lang_del_success}></td></tr>
+        <tr><td><b>N</b></td><td>:</td><td><{$lang_ns_pic}></td><td width="20">&nbsp;</td><td><img src="images/red.gif" border="0" width="12" height="12" align="middle" alt=""/></td><td>:</td><td><{$lang_err_del}></td></tr>
+        <tr><td><b>T</b></td><td>:</td><td><{$lang_thumb_pic}></td></tr>
+        <tr><td><b>C</b></td><td>:</td><td><{$lang_comment}></td></tr>
+        <tr><td><b>D</b></td><td>:</td><td><{$lang_im_in_alb}></td></tr>
+      </table>
+    </td>
+  </tr>
+  <{/if}>
+  <tr>
+    <td colspan="6" class="foot" align="center">
+          <div class="admin_menu_thumb"><a href="<{$continue_url}>"  class="adm_menu"><{$lang_continue}></a></div>
+        </td></tr>
+</table>
+<{include file="db:xcgal_footer.html"}>
